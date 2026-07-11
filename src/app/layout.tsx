@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import {  Manrope } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "sonner";
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <TooltipProvider>{children}</TooltipProvider></body>
+        <Toaster richColors/>
     </html>
   );
 }

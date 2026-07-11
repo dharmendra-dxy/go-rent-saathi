@@ -15,5 +15,5 @@ export const UI_ROUTES = {
   DASHBOARD: '/dashboard',
 
 
-  // SuperAdmin Routes:
+  // Admin Routes:
 }

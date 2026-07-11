@@ -1,24 +1,39 @@
 "use server";
 
+import { RESPONSE_MESSAGE } from "@/constant/message";
 import { auth } from "@/lib/auth";
+import { errorResponse, successResponse } from "@/utils/action-response";
 
-export const signIn = async () => {
-  console.log("I am here...")
-  await auth.api.signInEmail({
-    body:{
-      email: "test@gmail.com",
-      password: "1234",
-    }
-  })
-}
+export const signIn = async (email: string, password: string) => {
+  try {
+    await auth.api.signInEmail({
+      body: {
+        email,
+        password,
+      },
+    });
 
-export const signUp = async () => {
-  await auth.api.signUpEmail({
-    body:{
-      name: "test user",
-      email: "test@gmail.com",
-      password: "12345678",
-    }
-  })
-}
+    return successResponse(RESPONSE_MESSAGE.LOGIN_SUCCESS);
+  } catch (error) {
+    const e = error as Error;
+    const message = e.message ?? RESPONSE_MESSAGE.LOGIN_FAILED;
+    return errorResponse(message, error);
+  }
+};
 
+export const signUp = async (name: string, email: string, password: string) => {
+  try {
+    await auth.api.signUpEmail({
+      body: {
+        name,
+        email,
+        password,
+      },
+    });
+    return successResponse(RESPONSE_MESSAGE.SIGNUP_SUCCESS);
+  } catch (error) {
+    const e = error as Error;
+    const message = e.message ?? RESPONSE_MESSAGE.SIGNUP_FAILED;
+    return errorResponse(message, error);
+  }
+};
