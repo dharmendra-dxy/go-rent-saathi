@@ -1,8 +1,10 @@
 export const UI_ROUTES = {
 
+  BASE: "/",
+
   // auth:
   SIGNIN: '/signin',
-  SINGUP : '/sigup',
+  SINGUP : '/signup',
 
 
   // Public routes:
