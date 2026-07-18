@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:drop": "drizzle-kit drop",
+    "auth:generate": "npx @better-auth/cli generate --output ./src/db/schema/auth.schema.ts && sed -i '' 's#drizzle-orm/_relations#drizzle-orm#' ./src/db/schema/auth.schema.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -15,6 +21,11 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^4.4.0",
+<<<<<<< Updated upstream
+=======
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+>>>>>>> Stashed changes
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.42.2",
     "input-otp": "^1.4.2",

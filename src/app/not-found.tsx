@@ -34,7 +34,7 @@ const NotFound = () => {
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
           <Button
             onClick={() => router.back()}
-            variant={"secondary"}
+            variant={"secondaryr"}
             className="border-input  hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring inline-flex items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-xs font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none"
           >
             <ArrowLeft className="h-4 w-4" />
