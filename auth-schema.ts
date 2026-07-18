@@ -2,7 +2,6 @@ import { relations } from "drizzle-orm";
 import {
   pgTable,
   text,
-  pgEnum,
   timestamp,
   boolean,
   index,
@@ -95,8 +94,6 @@ export const organization = pgTable(
   (table) => [uniqueIndex("organization_slug_uidx").on(table.slug)],
 );
 
-export type Organization = typeof organization.$inferSelect;
-
 export const member = pgTable(
   "member",
   {
@@ -115,15 +112,6 @@ export const member = pgTable(
     index("member_userId_idx").on(table.userId),
   ],
 );
-
-export const role = pgEnum("role", ["member", "admin", "owner"]);
-export type Role = (typeof role.enumValues)[number];
-
-export type Member = typeof member.$inferSelect & {
-  user: typeof user.$inferSelect;
-};
-
-export type User = typeof user.$inferSelect;
 
 export const invitation = pgTable(
   "invitation",
@@ -194,15 +182,3 @@ export const invitationRelations = relations(invitation, ({ one }) => ({
     references: [user.id],
   }),
 }));
-
-export const schema = {
-  user,
-  session,
-  account,
-  verification,
-  organization,
-  member,
-  invitation,
-  organizationRelations,
-  memberRelations,
-};
