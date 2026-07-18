@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { UI_ROUTES } from "@/utils/ui-routes";
 
 const NAV_LINKS = [
   { label: "How it works", href: "#how-it-works" },
@@ -54,12 +55,14 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <Link
-            href="#login"
+            href={UI_ROUTES.SIGNIN}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             Log in
           </Link>
+          <Link  href={UI_ROUTES.SINGUP}>
           <Button size="default">Get started</Button>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
