@@ -15,14 +15,13 @@ import { UI_ROUTES } from "@/utils/ui-routes";
 import Link from "next/link";
 
 const BrokerDashboardPage = async () => {
-  // const { data: organizations } = authClient.useListOrganizations();
   const organizations = await getOrganizations();
   return (
     <div className="space-y-4">
       <div className="mt-22">
         <h1>All Organizations:</h1>
         {organizations?.map((org) => (
-          <Link href={`${UI_ROUTES.DASHBOARD}/${UI_ROUTES.org(org?.slug).ORGANIZATION}`}>
+          <Link href={UI_ROUTES.org(org?.slug).ORGANIZATION}>
             <Button>{org?.name}</Button>
           </Link>
         ))}
